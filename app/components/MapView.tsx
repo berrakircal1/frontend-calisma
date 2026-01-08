@@ -16,7 +16,7 @@ type Props = {
     route?: [number, number][]; // [[lat, lon], ...]
 };
 
-// ✅ Global prototype değiştirmek yerine icon’u Marker’a veriyoruz
+// Global prototype değiştirmek yerine icon’u Marker’a veriyoruz
 const DefaultIcon = L.icon({
     iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
     iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
@@ -28,7 +28,7 @@ const DefaultIcon = L.icon({
 export default function MapView({ points, route }: Props) {
     const [mounted, setMounted] = useState(false);
 
-    // ✅ DOM hazır olmadan Leaflet başlatma (appendChild hatasını çözer)
+    // DOM hazır olmadan Leaflet başlatma (appendChild hatasını çözer)
     useEffect(() => {
         setMounted(true);
     }, []);
@@ -60,10 +60,10 @@ export default function MapView({ points, route }: Props) {
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
 
-                    {/* ✅ Rota çizgisi */}
+                    {/*  Rota çizgisi */}
                     {route && route.length > 1 && <Polyline positions={route} />}
 
-                    {/* ✅ Marker'lar */}
+                    {/*  Marker'lar */}
                     {points.map((p) => (
                         <Marker key={p.id} position={[p.lat, p.lon]} icon={DefaultIcon}>
                             <Popup>

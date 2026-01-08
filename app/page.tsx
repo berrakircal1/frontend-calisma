@@ -20,7 +20,7 @@ export default function Home() {
     const [editing, setEditing] = useState<Person | null>(null);
     const [showForm, setShowForm] = useState(false);
 
-    // ✅ Rota state'leri
+    //  Rota state'leri
     const [startId, setStartId] = useState<string>("");
     const [endId, setEndId] = useState<string>("");
     const [route, setRoute] = useState<[number, number][]>([]); // [lat,lon][]
@@ -75,7 +75,7 @@ export default function Home() {
         setEditing(null);
     };
 
-    // ✅ Adres -> koordinat
+    //  Adres -> koordinat
     const handleGeocode = async (id: string) => {
         const target = people.find((p) => p.id === id);
         if (!target) return;
@@ -96,7 +96,7 @@ export default function Home() {
         }
     };
 
-    // ✅ Rota oluştur
+    //  Rota oluştur
     const handleRoute = async () => {
         const start = people.find((p) => p.id === startId);
         const end = people.find((p) => p.id === endId);
